@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "seed": "node seeder.js"
+    "seed": "node seeder.js",
+    "build": "echo 'No build step required'"
   },
   "keywords": [],
   "author": "",
