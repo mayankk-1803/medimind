@@ -21,12 +21,16 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://medimind-gamma.vercel.app",
-    credentials: true,
+    origin: [
+      "http://localhost:5173",
+      "https://medimind-gamma.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
   })
 );
 
-app.options("*", cors());
+
 app.use(express.json());
 
 // Routes
