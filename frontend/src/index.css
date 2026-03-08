@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1A1A1A;
+  --color-secondary: #3A3A3A;
+  --color-background: #F8F4EC;
+  --color-soft-bg: #EFE8DD;
+  --color-surface: #FFFFFF;
+  --color-dark-bg: #0F0F0F;
+  --color-dark-surface: #1A1A1A;
+  --color-dark-accent: #E8E2D9;
+  --color-textMain: #0F0F0F;
+  --color-textSecondary: #4B4B4B;
+  --color-textDark: #F5F5F5;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-emergency: #EF4444;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-textMain transition-colors duration-500 ease-in-out selection:bg-slate-300/30 selection:text-textMain dark:selection:text-textDark;
+    background-color: var(--color-background);
+  }
+  
+  .dark body {
+    background-color: var(--color-dark-bg);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-textMain dark:text-textDark;
+  }
+}
+
+@layer components {
+  .premium-card,
+  .glass-effect,
+  .glass-card {
+    @apply bg-surface dark:bg-dark-surface text-textMain dark:text-textDark border border-slate-200 dark:border-slate-800 shadow-[0_10px_25px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_25px_rgba(0,0,0,0.4)] rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_15px_30px_rgba(0,0,0,0.12)] relative overflow-hidden;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-2.5 font-medium rounded-2xl transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none tracking-wide text-sm relative overflow-hidden;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 font-medium rounded-2xl transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none tracking-wide text-sm relative overflow-hidden text-white dark:text-dark-bg bg-primary dark:bg-dark-accent hover:bg-[#2A2A2A] dark:hover:bg-white shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 font-medium rounded-2xl transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none tracking-wide text-sm relative overflow-hidden text-white dark:text-dark-bg bg-secondary dark:bg-[#C2BDB4] shadow-md;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-5 py-2.5 font-medium rounded-2xl transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none tracking-wide text-sm relative overflow-hidden border border-primary dark:border-dark-accent bg-transparent text-primary dark:text-dark-accent hover:bg-slate-50 dark:hover:bg-slate-900;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-dark-surface focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-600 focus:border-primary dark:focus:border-dark-accent transition-all duration-300 placeholder-slate-400 dark:placeholder-slate-500 text-textMain dark:text-textDark mb-4;
+  }
+
+  .label-text {
+    @apply block text-sm font-medium text-textSecondary dark:text-slate-300 mb-1.5 ml-1;
+  }
+
+  .badge-success {
+    @apply bg-success/10 text-success px-2 py-1 rounded-full text-xs font-semibold;
+  }
+  .badge-warning {
+    @apply bg-warning/10 text-warning px-2 py-1 rounded-full text-xs font-semibold;
+  }
+  .badge-emergency {
+    @apply bg-emergency/10 text-emergency px-2 py-1 rounded-full text-xs font-semibold;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+}
