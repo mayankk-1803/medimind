@@ -18,7 +18,16 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: "https://medimind-gamma.vercel.app",
+    credentials: true,
+  })
+);
+
+app.options("*", cors());
 app.use(express.json());
 
 // Routes
@@ -28,6 +37,12 @@ app.use('/api/diseases', diseaseRoutes);
 app.use('/api/reports', reportRoutes);
 
 // Basic health check route
+
+app.get("/", (req, res) => {
+  res.send("MediMind AI Backend Running 🚀");
+});
+
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'success', message: 'MediMind AI Backend is running' });
 });
